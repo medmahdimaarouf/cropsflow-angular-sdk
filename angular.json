@@ -3,5 +3,37 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "cropsflow": {
+      "projectType": "library",
+      "root": "projects/cropsflow",
+      "sourceRoot": "projects/cropsflow/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/cropsflow/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cropsflow/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/cropsflow/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cropsflow/src/test.ts",
+            "tsConfig": "projects/cropsflow/tsconfig.spec.json",
+            "karmaConfig": "projects/cropsflow/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "cropsflow"
 }
