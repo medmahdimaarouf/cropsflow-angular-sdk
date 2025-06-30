@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { InjectionToken, ModuleWithProviders, NgModule } from '@angular/core';
-import { CropsFlow, CropsFlowClient, EventsManager, CropsFlowOptions, HttpClientConfig } from '@cropsflow/client';
+import { CropsFlow, CropsFlowClient, EventsManager, CropsFlowOptions, HttpClientConfig, MontoringManager } from '@cropsflow/client';
 
 export const HTTP_CLIENT_CONFIG_INJECTION_TOKEN = new InjectionToken('__Http_client_config__')
 
@@ -29,6 +29,10 @@ export class CropsFlowModule {
         {
           provide: EventsManager,
           useValue: client.events()
+        },
+        {
+          provide: MontoringManager,
+          useValue: client.monitoring()
         }
       ]
     }
